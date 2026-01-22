@@ -2,10 +2,9 @@
 """Unittests for max_integer function"""
 import unittest
 import sys
+sys.path.append('..')  # permet d'importer le fichier parent
 
-sys.path.append('..')
-max_integer = __import__('6-max_integer').max_integer
-
+from 6_max_integer import max_integer  # Nom du fichier sans tiret
 
 class TestMaxInteger(unittest.TestCase):
 
@@ -32,3 +31,6 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_same_values(self):
         self.assertEqual(max_integer([3, 3, 3]), 3)
+
+if __name__ == "__main__":
+    unittest.main()
