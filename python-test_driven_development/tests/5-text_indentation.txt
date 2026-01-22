@@ -1,15 +1,25 @@
->>> text_indentation = __import__('5-text_indentation').text_indentation
-
->>> text_indentation("Hello. World?")
+>>> from 5-text_indentation import text_indentation
+>>> text_indentation("Hello. How are you? I am fine: thanks.")
 Hello.
-
-World?
-
->>> text_indentation("Hi: How are you.")
-Hi:
-
-How are you.
-
->>> text_indentation(12)
+ 
+How are you?
+ 
+I am fine:
+ 
+thanks.
+>>> text_indentation("No punctuation here")
+No punctuation here
+>>> text_indentation("Multiple...dots..here.")
+Multiple.
+ 
+.
+ 
+.
+ 
+dots.
+ 
+here.
+>>> text_indentation("")
+>>> text_indentation(123)
 Traceback (most recent call last):
 TypeError: text must be a string
