@@ -1,33 +1,26 @@
 #!/usr/bin/python3
-"""Module that prints a text with 2 new lines after '.', '?' and ':'"""
+"""
+    Function file for text_indentation.
+"""
 
 
 def text_indentation(text):
-    """Prints text with 2 newlines after '.', '?', ':'.
-
-    Args:
-        text (str): The text to print
-
-    Raises:
-        TypeError: if text is not a string
+    """
+        Prints a text with 2 new lines after each characters
+        `.`, `?`, `:`
+        Arguments:
+            text (str): Text to formated.
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Les caractères de séparation
-    separators = ['.', '?', ':']
-    start = 0  # début de la sous-chaîne
+    s = text[:]
 
-    for i, char in enumerate(text):
-        if char in separators:
-            # Extraire la sous-chaîne et enlever les espaces de début et fin
-            piece = text[start:i + 1].strip()
-            if piece:
-                print(piece)
-                print()
-            start = i + 1
+    for d in ".?:":
+        list_text = s.split(d)
+        s = ""
+        for i in list_text:
+            i = i.strip(" ")
+            s = i + d if s is "" else s + "\n\n" + i + d
 
-    # Si reste de texte après la dernière séparation
-    remainder = text[start:].strip()
-    if remainder:
-        print(remainder)
+    print(s[:-3], end="")
