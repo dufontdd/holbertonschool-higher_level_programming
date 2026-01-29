@@ -58,3 +58,12 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """Returns a string representation of the rectangle."""
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        rectangle = []
+        for _ in range(self.__height):
+            rectangle.append("#" * self.__width)
+        return "\n".join(rectangle)
