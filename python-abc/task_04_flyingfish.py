@@ -1,25 +1,41 @@
 #!/usr/bin/python3
 """
-    Iterator that counts the number of items iterated
+    Demonstration of multiple inheritance with FlyingFish
 """
 
 
-class CountedIterator:
+class Fish:
+    """ Represents a fish that swims in water """
+
+    def swim(self):
+        print("The fish is swimming")
+
+    def habitat(self):
+        print("The fish lives in water")
+
+
+class Bird:
+    """ Represents a bird that flies in the sky """
+
+    def fly(self):
+        print("The bird is flying")
+
+    def habitat(self):
+        print("The bird lives in the sky")
+
+
+class FlyingFish(Fish, Bird):
     """
-        Wraps an iterator and tracks iteration count
+        Flying fish that inherits from both Fish and Bird
+        MRO: FlyingFish -> Fish -> Bird -> object
     """
 
-    def __init__(self, _iterable):
-        """ Convertit l'itérable en itérateur """
-        self.iterator = iter(_iterable)
-        self.count = 0
+    def fly(self):
+        print("The flying fish is soaring!")
 
-    def get_count(self):
-        """ Retourne le nombre d'éléments itérés """
-        return self.count
+    def swim(self):
+        print("The flying fish is swimming!")
 
-    def __next__(self):
-        """ Récupère l'élément suivant et incrémente le compteur """
-        item = next(self.iterator)
-        self.count += 1
-        return item
+    def habitat(self):
+        """ Override pour résoudre le conflit entre Fish et Bird """
+        print("The flying fish lives both in water and the sky!")
