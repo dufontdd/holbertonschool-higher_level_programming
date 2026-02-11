@@ -3,6 +3,7 @@
 Defines a Student class with JSON serialization.
 """
 
+
 class Student:
     """Represents a student with first name, last name, and age."""
 
@@ -13,5 +14,8 @@ class Student:
         self.age = age
 
     def to_json(self):
-        """Returns a dictionary representation of the student."""
-        return self.__dict__
+        """
+        Returns a dictionary representation of the student instance.
+        This mimics 8-class_to_json by returning only serializable attributes.
+        """
+        return {key: value for key, value in self.__dict__.items()}
