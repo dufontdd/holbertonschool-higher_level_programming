@@ -49,7 +49,7 @@ def products():
     data = []
     error = None
 
-    # 🔥 Choose source
+    # Choose source
     if source == "json":
         data = read_json()
     elif source == "csv":
@@ -58,7 +58,7 @@ def products():
         error = "Wrong source"
         return render_template('product_display.html', error=error)
 
-    # 🔥 Filter by id
+    # Filter by id
     if product_id:
         try:
             product_id = int(product_id)
